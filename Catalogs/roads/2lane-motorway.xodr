@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<OpenDRIVE>
+   <header south="-10" revMinor="2" name="Untitled" west="-704.4" version="1" revMajor="1" north="10" east="704.4" date="Mo Mrz 23:20:56 2021">
+      <geoReference><![CDATA[ +proj=utm +zone=32 +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0]]></geoReference>
+   </header>
+   <userData value="0 unknown" code="tile"/>
+   <road name="unnamed" id="unnamed" length="1153" junction="-1">
+      <planView>
+         <geometry hdg="0" x="-587" y="2" length="1153" s="0">
+            <line/>
+         </geometry>
+      </planView>
+      <elevationProfile>
+         <elevation c="0" d="0" a="0" b="0" s="0"/>
+      </elevationProfile>
+      <lateralProfile>
+         <superelevation c="0" d="0" a="0" b="0" s="0"/>
+         <crossfall side="both" c="0" d="0" a="0" b="0" s="0"/>
+         <shape t="-13" c="0" d="0" a="0" b="0" s="0"/>
+         <shape t="-3.25" c="0" d="0" a="0" b="0" s="0"/>
+      </lateralProfile>
+      <lanes>
+         <laneSection s="0" singleSide="false">
+            <right>
+               <lane level="0" type="none" id="-7">
+                  <width c="0" d="0" a="1.5" sOffset="0" b="0"/>
+                  <roadMark width="0.12" laneChange="both" type="none" color="standard" sOffset="0" weight="standard" height="0" material="none"/>
+               </lane>
+               <lane level="0" type="shoulder" id="-6">
+                  <width c="0" d="0" a="2" sOffset="0" b="0"/>
+                  <roadMark width="0.12" laneChange="both" type="none" color="standard" sOffset="0" weight="standard" height="0" material="none"/>
+               </lane>
+               <lane level="0" type="border" id="-5">
+                  <width c="0" d="0" a="0.5" sOffset="0" b="0"/>
+                  <roadMark width="0.12" laneChange="both" type="none" color="standard" sOffset="0" weight="standard" height="0" material="none"/>
+               </lane>
+               <lane level="0" type="driving" id="-4">
+                  <width c="0" d="0" a="3.5" sOffset="0" b="0"/>
+                  <roadMark width="0.3" laneChange="both" type="solid" color="standard" sOffset="0" weight="standard" height="0" material="none"/>
+               </lane>
+               <lane level="0" type="driving" id="-3">
+                  <width c="0" d="0" a="3.5" sOffset="0" b="0"/>
+                  <roadMark width="0.15" laneChange="both" type="broken" color="standard" sOffset="0" weight="standard" height="0" material="none"/>
+               </lane>
+               <lane level="0" type="border" id="-2">
+                  <width c="0" d="0" a="0.5" sOffset="0" b="0"/>
+                  <roadMark width="0.15" laneChange="both" type="solid" color="standard" sOffset="0" weight="standard" height="0" material="none"/>
+               </lane>
+               <lane level="0" type="none" id="-1">
+                  <width c="0" d="0" a="1.5" sOffset="0" b="0"/>
+                  <roadMark width="0.12" laneChange="both" type="none" color="standard" sOffset="0" weight="standard" height="0" material="none"/>
+               </lane>
+            </right>
+            <center>
+               <lane level="0" type="border" id="0">
+                  <roadMark width="0.12" laneChange="both" type="none" color="standard" sOffset="0" weight="standard" height="0" material="none"/>
+               </lane>
+            </center>
+            <left>
+               <lane level="0" type="none" id="1">
+                  <width c="0" d="0" a="1.5" sOffset="0" b="0"/>
+                  <roadMark width="0.12" laneChange="both" type="none" color="standard" sOffset="0" weight="standard" height="0" material="none"/>
+               </lane>
+               <lane level="0" type="border" id="2">
+                  <width c="0" d="0" a="0.5" sOffset="0" b="0"/>
+                  <roadMark width="0.15" laneChange="both" type="solid" color="standard" sOffset="0" weight="standard" height="0" material="none"/>
+               </lane>
+               <lane level="0" type="driving" id="3">
+                  <width c="0" d="0" a="3.5" sOffset="0" b="0"/>
+                  <roadMark width="0.15" laneChange="both" type="broken" color="standard" sOffset="0" weight="standard" height="0" material="none"/>
+               </lane>
+               <lane level="0" type="driving" id="4">
+                  <width c="0" d="0" a="3.5" sOffset="0" b="0"/>
+                  <roadMark width="0.3" laneChange="both" type="solid" color="standard" sOffset="0" weight="standard" height="0" material="none"/>
+               </lane>
+               <lane level="0" type="border" id="5">
+                  <width c="0" d="0" a="0.5" sOffset="0" b="0"/>
+                  <roadMark width="0.12" laneChange="both" type="none" color="standard" sOffset="0" weight="standard" height="0" material="none"/>
+               </lane>
+               <lane level="0" type="shoulder" id="6">
+                  <width c="0" d="0" a="2" sOffset="0" b="0"/>
+                  <roadMark width="0.12" laneChange="both" type="none" color="standard" sOffset="0" weight="standard" height="0" material="none"/>
+               </lane>
+               <lane level="0" type="none" id="7">
+                  <width c="0" d="0" a="1.5" sOffset="0" b="0"/>
+                  <roadMark width="0.12" laneChange="both" type="none" color="standard" sOffset="0" weight="standard" height="0" material="none"/>
+               </lane>
+            </left>
+         </laneSection>
+      </lanes>
+      <type type="motorway" s="0"/>
+   </road>
+</OpenDRIVE>

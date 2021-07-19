@@ -1,0 +1,36 @@
+<html>
+  <body>
+    <script>
+
+
+      (async () => {
+        const root = 'https://api.github.com/repos/Leviathan321/leviathan321.github.io/contents';  
+        const branch = "?ref=gh-pages";
+        const response = await fetch('https://api.github.com/repos/Leviathan321/leviathan321.github.io/contents/?ref=gh-pages');
+        const data = await response.json();
+        let htmlString = '<ul>';
+        for (let file of data) {
+        const ar = file.name.split('.');
+        if (ar.length > 1) {
+            console.log("is file");
+        } else {            
+          htmlString += `<li><a href="${file.path}">${file.name}</a></li>`;
+          const subPath = root + "/" + file.name + "/" + branch;
+          const respSub = await fetch(subPath);
+          const dataSub = await respSub.json();
+          console.log(subPath);
+          console.log(respSub);
+          console.log(dataSub);
+          if (dataSub) {
+          for (let fileS of dataSub) {
+            htmlString += '<p><a href="${fileS.path}">${fileS.name}</a></p>';
+          }
+        }
+        }
+        }
+        htmlString += '</ul>';
+        document.getElementsByTagName('body')[0].innerHTML = htmlString;
+      })()
+    </script>
+  <body>
+</html>

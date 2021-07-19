@@ -1,0 +1,140 @@
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="osc-schema.xsd">
+	<FileHeader revMajor="1" revMinor="0" date="2020-10-09T10:00:00" description="ego-vehicle drives on the left lane with a preceding vehicle and a following vehicle" author="" />
+	<ParameterDeclarations>
+		<ParameterDeclaration name="HostVehicle" parameterType="string" value="car_white" />
+		<ParameterDeclaration name="LFVehicle" parameterType="string" value="car_blue" />
+		<ParameterDeclaration name="RFVehicle" parameterType="string" value="bus_blue" />
+		<ParameterDeclaration name="LPVehicle" parameterType="string" value="car_red" />
+		<ParameterDeclaration name="LFollowerStartS" parameterType="double" value="30" />
+		<ParameterDeclaration name="EgoStartS" parameterType="double" value="40" />
+		<ParameterDeclaration name="RFollowerStartS" parameterType="double" value="30" />&gt;
+		<ParameterDeclaration name="LPrecederStartS" parameterType="double" value="50" />
+		<ParameterDeclaration name="EgoTargetSpeed" parameterType="double" value="30" />
+	</ParameterDeclarations>
+	<CatalogLocations>
+		<VehicleCatalog>
+			<Directory path="Catalogs/Vehicles" />
+		</VehicleCatalog>
+	</CatalogLocations>
+	<RoadNetwork>
+		<LogicFile filepath="Catalogs/roads/3lane-highway.xodr" />
+	</RoadNetwork>
+	<Entities>
+		<ScenarioObject name="Ego">
+			<CatalogReference catalogName="VehicleCatalogChanged" entryName="$HostVehicle" />
+		</ScenarioObject>
+		<ScenarioObject name="LFollower">
+			<CatalogReference catalogName="VehicleCatalogChanged" entryName="$LFVehicle" />
+		</ScenarioObject>
+		<ScenarioObject name="LPreceder">
+			<CatalogReference catalogName="VehicleCatalogChanged" entryName="$LPVehicle" />
+		</ScenarioObject>
+	</Entities>
+	<Storyboard>
+		<Init>
+			<Actions>
+				<Private entityRef="Ego">
+					<PrivateAction>
+						<TeleportAction>
+							<Position>
+								<LanePosition roadId="0" laneId="-2" offset="0" s="$EgoStartS" />
+							</Position>
+						</TeleportAction>
+					</PrivateAction>
+					<PrivateAction>
+						<LongitudinalAction>
+							<SpeedAction>
+								<SpeedActionDynamics dynamicsShape="step" dynamicsDimension="time" value="1" />
+								<SpeedActionTarget>
+									<AbsoluteTargetSpeed value="$EgoTargetSpeed" />
+								</SpeedActionTarget>
+							</SpeedAction>
+						</LongitudinalAction>
+					</PrivateAction>
+				</Private>
+				<Private entityRef="LFollower">
+					<PrivateAction>
+						<TeleportAction>
+							<Position>
+								<LanePosition roadId="0" laneId="-2" offset="0" s="$LFollowerStartS" />
+							</Position>
+						</TeleportAction>
+					</PrivateAction>
+					<PrivateAction>
+						<LongitudinalAction>
+							<SpeedAction>
+								<SpeedActionDynamics dynamicsShape="step" dynamicsDimension="time" value="1" />
+								<SpeedActionTarget>
+									<AbsoluteTargetSpeed value="$EgoTargetSpeed" />
+								</SpeedActionTarget>
+							</SpeedAction>
+						</LongitudinalAction>
+					</PrivateAction>
+				</Private>
+				<Private entityRef="LPreceder">
+					<PrivateAction>
+						<TeleportAction>
+							<Position>
+								<LanePosition roadId="0" laneId="-2" offset="0" s="$LPrecederStartS" />
+							</Position>
+						</TeleportAction>
+					</PrivateAction>
+					<PrivateAction>
+						<LongitudinalAction>
+							<SpeedAction>
+								<SpeedActionDynamics dynamicsShape="step" dynamicsDimension="time" value="1" />
+								<SpeedActionTarget>
+									<AbsoluteTargetSpeed value="$EgoTargetSpeed" />
+								</SpeedActionTarget>
+							</SpeedAction>
+						</LongitudinalAction>
+					</PrivateAction>
+				</Private>
+			</Actions>
+		</Init>
+		<Story name="Forwarding">
+			<Act name="EgoAct">
+				<ManeuverGroup name="Maneuver" maximumExecutionCount="1">
+					<Actors selectTriggeringEntities="false">
+						<EntityRef entityRef="Ego" />
+					</Actors>
+					<Maneuver name="TheManeuver">
+						<Event name="Event" maximumExecutionCount="1" priority="overwrite">
+							<Action name="Continue">
+								<PrivateAction>
+									<LongitudinalAction>
+										<SpeedAction>
+											<SpeedActionDynamics dynamicsShape="linear" value="2" dynamicsDimension="time" />
+											<SpeedActionTarget>
+												<AbsoluteTargetSpeed value="$EgoTargetSpeed" />
+											</SpeedActionTarget>
+										</SpeedAction>
+									</LongitudinalAction>
+								</PrivateAction>
+							</Action>
+							<StartTrigger>
+								<ConditionGroup>
+									<Condition name="condition" delay="0" conditionEdge="none">
+										<ByValueCondition>
+											<SimulationTimeCondition value="0" rule="greaterThan" />
+										</ByValueCondition>
+									</Condition>
+								</ConditionGroup>
+							</StartTrigger>
+						</Event>
+					</Maneuver>
+				</ManeuverGroup>
+				<StartTrigger>
+					<ConditionGroup>
+						<Condition name="EgoActStart" delay="0" conditionEdge="rising">
+							<ByValueCondition>
+								<SimulationTimeCondition value="0" rule="greaterThan" />
+							</ByValueCondition>
+						</Condition>
+					</ConditionGroup>
+				</StartTrigger>
+			</Act>
+		</Story>
+		<StopTrigger />
+	</Storyboard>
+</OpenSCENARIO>

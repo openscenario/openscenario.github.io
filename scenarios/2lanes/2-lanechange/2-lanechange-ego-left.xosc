@@ -1,0 +1,94 @@
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="osc-schema.xsd">
+	<FileHeader author="esmini-team" date="2020-10-09T10:00:00" description="ego vehicle performs a lane change from the left lane to the right lane" revMajor="1" revMinor="0" />
+	<ParameterDeclarations>
+		<ParameterDeclaration name="HostVehicle" parameterType="string" value="car_white" />
+		<ParameterDeclaration name="EgoStartS" parameterType="double" value="50" />
+		<ParameterDeclaration name="EgoLaneChangeStart" parameterType="double" value="2" />
+		<ParameterDeclaration name="EgoTargetSpeed" parameterType="double" value="30" />
+	</ParameterDeclarations>
+	<CatalogLocations>
+		<VehicleCatalog>
+			<Directory path="Catalogs/Vehicles" />
+		</VehicleCatalog>
+	</CatalogLocations>
+	<RoadNetwork>
+		<LogicFile filepath="Catalogs/roads/2lane-motorway.xodr" />
+	</RoadNetwork>
+	<Entities>
+		<ScenarioObject name="Ego">
+			<CatalogReference catalogName="VehicleCatalogChanged" entryName="$HostVehicle" />
+		</ScenarioObject>
+	</Entities>
+	<Storyboard>
+		<Init>
+			<Actions>
+				<Private entityRef="Ego">
+					<PrivateAction>
+						<TeleportAction>
+							<Position>
+								<LanePosition laneId="-3" offset="0" roadId="0" s="$EgoStartS" />
+							</Position>
+						</TeleportAction>
+					</PrivateAction>
+					<PrivateAction>
+						<LongitudinalAction>
+							<SpeedAction>
+								<SpeedActionDynamics dynamicsDimension="time" dynamicsShape="step" value="1" />
+								<SpeedActionTarget>
+									<AbsoluteTargetSpeed value="$EgoTargetSpeed" />
+								</SpeedActionTarget>
+							</SpeedAction>
+						</LongitudinalAction>
+					</PrivateAction>
+				</Private>
+			</Actions>
+		</Init>
+		<Story name="LaneChange">
+			<ParameterDeclarations>
+				<ParameterDeclaration name="owner" parameterType="string" value="OverTaker" />
+			</ParameterDeclarations>
+			<Act name="EgoAct">
+				<ManeuverGroup maximumExecutionCount="1" name="Maneuver">
+					<Actors selectTriggeringEntities="false">
+						<EntityRef entityRef="Ego" />
+					</Actors>
+					<Maneuver name="TheManeuver">
+						<Event maximumExecutionCount="1" name="Event" priority="overwrite">
+							<Action name="CutInAction">
+								<PrivateAction>
+									<LateralAction>
+										<LaneChangeAction>
+											<LaneChangeActionDynamics dynamicsDimension="time" dynamicsShape="sinusoidal" value="3" />
+											<LaneChangeTarget>
+												<AbsoluteTargetLane value="-4" />
+											</LaneChangeTarget>
+										</LaneChangeAction>
+									</LateralAction>
+								</PrivateAction>
+							</Action>
+							<StartTrigger>
+								<ConditionGroup>
+									<Condition conditionEdge="none" delay="$EgoLaneChangeStart" name="Lane change condition">
+										<ByValueCondition>
+											<SimulationTimeCondition rule="greaterThan" value="0" />
+										</ByValueCondition>
+									</Condition>
+								</ConditionGroup>
+							</StartTrigger>
+						</Event>
+					</Maneuver>
+				</ManeuverGroup>
+				<StartTrigger>
+					<ConditionGroup>
+						<Condition conditionEdge="rising" delay="0" name="EgoActStart">
+							<ByValueCondition>
+								<SimulationTimeCondition rule="greaterThan" value="0" />
+							</ByValueCondition>
+						</Condition>
+					</ConditionGroup>
+				</StartTrigger>
+			</Act>
+		</Story>
+		<StopTrigger />
+	</Storyboard>
+</OpenSCENARIO>
