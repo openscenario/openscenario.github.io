@@ -28,6 +28,11 @@ Scenarios are described in OpenScneario and can be used with Carla, esmini, and 
 [3-Lane Highway - Ego vehicle changes the lane](https://github.com/openscenario/openscenario.github.io/tree/main/scenarios/3lanes/3-lanechange)
 
 
+## Related publications
+
+[Clustering traffic scenarios using mental models as little as possible](https://ieeexplore.ieee.org/document/9304636)
+
+
 <!--## Deployment online
 
 The website can be accessed via https://openscenario.github.io.
