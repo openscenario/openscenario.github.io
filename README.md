@@ -1,4 +1,4 @@
-# Website Hierarchical Clustering
+# Hierarchical Catalog of Straight-line Highway Scenarios
 
 ## Deployment online
 
