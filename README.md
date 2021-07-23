@@ -1,5 +1,8 @@
 # Hierarchical Catalog of Straight-line Highway Scenarios
 
+Test  scenario  generation  for  testing  automated and autonomous driving systems requires knowledge about the recurring  traffic  cases,  known  as  scenario  types.  The  most common  approach  in  industry  is  to  have  experts  create  lists of  scenario  types.  This  poses  the  risk  both  that  certain  types are  overlooked;  and  that  the  mental  model  that  underlies  the manual  process  is  inadequate.  We  extracted  scenario types  from  real  driving  data  by  clustering  recorded  scenario instances, which are composed of time series. 
+We have constructed a living system of relevant scenario types that changes over time as we gather empirical evidences. The hierarchical format of the catalog helps user to have access to scenarios at three levels of granularity. Depending on context, one can decide which granularity to use. At the first level, scenarios are grouped based on the scene types and street type. At the second level, scenarios are grouped based on the trajectory of the ego vehicle, and at the third level scenarios are grouped based on the distances of the ego vehicle from its surrounding vehicles.
+
 ## Deployment online
 
 The website can be accessed via https://openscenario.github.io.
