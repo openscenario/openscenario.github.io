@@ -25,7 +25,7 @@ We have constructed a living system of relevant scenario types that changes over
 [3-Lane Highway - Ego vehicle changes the lane](https://github.com/openscenario/openscenario.github.io/tree/main/scenarios/3lanes/3-lanechange)
 
 
-## Deployment online
+<!--## Deployment online
 
 The website can be accessed via https://openscenario.github.io.
 
@@ -42,4 +42,4 @@ The website can be accessed locally at *localhost:4000*.
 
 ## Customization
 
-Consider for changing links and text content *.html* files in the top level folder and the *_data*-Folder.
+Consider for changing links and text content *.html* files in the top level folder and the *_data*-Folder. -->
