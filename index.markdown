@@ -20,8 +20,7 @@ This is the description of the project
 
 - [2lanes](/scenarios//2lanes)
 - [3lanes](/scenarios//3lanes)
-- [group1](/scenarios//group1)
-
+- 
 ### About
 
 ### License
