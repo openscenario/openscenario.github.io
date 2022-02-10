@@ -33,4 +33,11 @@ MIT License -->
 
 [Clustering traffic scenarios using mental models as little as possible](https://ieeexplore.ieee.org/document/9304636)
 
+### Contribution
+
+## Contribution
+
+Mojdeh Golagha, Panarit J., Lev Sorokin (sorokin@fortiss.org)
+
+
 
