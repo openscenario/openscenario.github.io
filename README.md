@@ -32,6 +32,9 @@ Scenarios are described in OpenScneario and can be used with Carla, esmini, and 
 
 [Clustering traffic scenarios using mental models as little as possible](https://ieeexplore.ieee.org/document/9304636)
 
+## Contribution
+
+Mojdeh Golagha, Panarit J., Lev Sorokin (sorokin@fortiss.org)
 
 <!--## Deployment online
 
